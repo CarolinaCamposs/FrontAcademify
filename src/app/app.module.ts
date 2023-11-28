@@ -6,17 +6,36 @@ import { AppComponent } from './app.component';
 import { TopoComponent } from './template/topo/topo.component';
 import { RodapeComponent } from './template/rodape/rodape.component';
 import { HomeComponent } from './home/home.component';
+import { AlunoListaComponent } from './aluno-lista/aluno-lista.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatSortModule } from '@angular/material/sort';
+import { MatTableModule } from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { HttpClientModule } from '@angular/common/http';
+import { MatButtonModule } from '@angular/material/button';
+
+
 
 @NgModule({
   declarations: [
     AppComponent,
     TopoComponent,
     RodapeComponent,
-    HomeComponent
+    HomeComponent,
+    AlunoListaComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatPaginatorModule,
+    MatSortModule,
+    MatTableModule,
+    MatFormFieldModule,
+    HttpClientModule,
+    MatButtonModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]

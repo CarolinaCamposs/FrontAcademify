@@ -13,26 +13,27 @@ export class AlunoService {
   constructor(private http: HttpClient) {}
 
   listarAlunos(): Observable<Aluno[]> {
-    return this.http.get<Aluno[]>(`${this.apiUrl}/api/aluno/listar`);
-  }
+  return this.http.get<Aluno[]>(`${this.apiUrl}/listar`);
+}
 
-  getAlunoById(id: number): Observable<Aluno> {
-    return this.http.get<Aluno>(`${this.apiUrl}/api/aluno/get/${id}`);
-  }
 
-  incluirAluno(aluno: Aluno): Observable<Aluno> {
-    return this.http.post<Aluno>(`${this.apiUrl}/api/aluno/incluir`, aluno);
-  }
+  // getAlunoById(id: number): Observable<Aluno> {
+  //   return this.http.get<Aluno>(`${this.apiUrl}/api/aluno/get/${id}`);
+  // }
 
-  editarAluno(aluno: Aluno): Observable<Aluno> {
-    return this.http.put<Aluno>(`${this.apiUrl}/api/aluno/editar`, aluno);
-  }
+  // incluirAluno(aluno: Aluno): Observable<Aluno> {
+  //   return this.http.post<Aluno>(`${this.apiUrl}/api/aluno/incluir`, aluno);
+  // }
 
-  removerAluno(aluno: Aluno): Observable<Aluno> {
-    return this.http.post<Aluno>(`${this.apiUrl}/api/aluno/remover`, aluno);
-  }
+  // editarAluno(aluno: Aluno): Observable<Aluno> {
+  //   return this.http.put<Aluno>(`${this.apiUrl}/api/aluno/editar`, aluno);
+  // }
 
-  getTotalAlunos(): Observable<number> {
-    return this.http.get<number>(`${this.apiUrl}/api/aluno/getTotal`);
-  }
+  // removerAluno(aluno: Aluno): Observable<Aluno> {
+  //   return this.http.post<Aluno>(`${this.apiUrl}/api/aluno/remover`, aluno);
+  // }
+
+  // getTotalAlunos(): Observable<number> {
+  //   return this.http.get<number>(`${this.apiUrl}/api/aluno/getTotal`);
+  // }
 }

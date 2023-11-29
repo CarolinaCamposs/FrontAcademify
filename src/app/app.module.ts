@@ -14,6 +14,8 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 
@@ -33,8 +35,10 @@ import { MatButtonModule } from '@angular/material/button';
     MatSortModule,
     MatTableModule,
     MatFormFieldModule,
+    MatInputModule,
     HttpClientModule,
-    MatButtonModule
+    MatButtonModule,
+    FormsModule,
 
   ],
   providers: [],

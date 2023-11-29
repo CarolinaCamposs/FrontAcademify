@@ -5,6 +5,8 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Aluno } from '../aluno.model';
 import { AlunoService } from '../aluno.service';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-aluno-lista',
@@ -21,10 +23,10 @@ export class AlunoListaComponent implements AfterViewInit {
   constructor(private alunoService: AlunoService) {}
 
   ngAfterViewInit() {
-    this.carregarAlunos();
+    this.listarAlunos();
   }
 
-  carregarAlunos(): void {
+  listarAlunos(): void {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       this.dataSource.data = alunos; 
       this.dataSource.paginator = this.paginator;
@@ -35,5 +37,5 @@ export class AlunoListaComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
+  } 
 }

@@ -1,8 +1,7 @@
-<div class="filter-container">
-<mat-form-field class="example-full-width">
-    <input matInput (input)="applyFilter($event)" placeholder="Filtro">
+<mat-form-field>
+  <mat-label>Filter</mat-label>
+  <input matInput (keyup)="applyFilter($event)" placeholder="Buscar" #input>
 </mat-form-field>
-</div>
 
 <div class="mat-elevation-z8">
   <table mat-table [dataSource]="dataSource" matSort>

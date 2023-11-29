@@ -23,12 +23,12 @@
 
     <ng-container matColumnDef="nascimento">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Nascimento </th>
-      <td mat-cell *matCellDef="let row"> {{row.nascimento}} </td>
+      <td mat-cell *matCellDef="let row"> {{row.nascimento | date:'dd/MM/yyyy'}} </td>
     </ng-container>
 
-    <ng-container matColumnDef="dataCadastro">
+    <ng-container matColumnDef="dataHoraCadastro">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> Data de Cadastro </th>
-      <td mat-cell *matCellDef="let row"> {{row.dataCadastro}} </td>
+      <td mat-cell *matCellDef="let aluno"> {{ aluno.dataHoraCadastro | date:'dd/MM/yyyy HH:mm' }} </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

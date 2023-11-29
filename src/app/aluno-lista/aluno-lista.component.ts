@@ -1,12 +1,9 @@
-// aluno-lista.component.ts
 import { Component, ViewChild, AfterViewInit } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Aluno } from '../aluno.model';
 import { AlunoService } from '../aluno.service';
-import {MatInputModule} from '@angular/material/input';
-import {MatFormFieldModule} from '@angular/material/form-field';
 
 @Component({
   selector: 'app-aluno-lista',
@@ -14,13 +11,13 @@ import {MatFormFieldModule} from '@angular/material/form-field';
   styleUrls: ['./aluno-lista.component.css'],
 })
 export class AlunoListaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'nome', 'matricula', 'nascimento', 'dataCadastro'];
+  displayedColumns: string[] = ['id', 'nome', 'matricula', 'nascimento', 'dataHoraCadastro'];
   dataSource: MatTableDataSource<Aluno> = new MatTableDataSource<Aluno>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private alunoService: AlunoService) {}
+  constructor(private alunoService: AlunoService) { }
 
   ngAfterViewInit() {
     this.listarAlunos();
@@ -28,7 +25,8 @@ export class AlunoListaComponent implements AfterViewInit {
 
   listarAlunos(): void {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
-      this.dataSource.data = alunos; 
+      console.log('Dados recebidos:', alunos);
+      this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
@@ -37,5 +35,5 @@ export class AlunoListaComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-  } 
+  }
 }

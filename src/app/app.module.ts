@@ -16,6 +16,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 
@@ -39,9 +40,10 @@ import { MatInputModule } from '@angular/material/input';
     HttpClientModule,
     MatButtonModule,
     FormsModule,
+    CommonModule
 
   ],
-  providers: [],
+  providers: [DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

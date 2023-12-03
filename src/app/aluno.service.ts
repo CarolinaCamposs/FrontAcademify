@@ -12,10 +12,15 @@ export class AlunoService {
 
   constructor(private http: HttpClient) {}
 
+  // LISTAR ALUNOS 
   listarAlunos(): Observable<Aluno[]> {
   return this.http.get<Aluno[]>(`${this.apiUrl}/listar`);
 }
-
+  // CADASTRAR NOVO ALUNO 
+  criarAluno(alunoData: any): Observable<any> {
+    // Lógica para enviar os dados do aluno para o servidor
+    return this.http.post(`${this.apiUrl}/incluir`, alunoData);
+  }
 
   // getAlunoById(id: number): Observable<Aluno> {
   //   return this.http.get<Aluno>(`${this.apiUrl}/api/aluno/get/${id}`);

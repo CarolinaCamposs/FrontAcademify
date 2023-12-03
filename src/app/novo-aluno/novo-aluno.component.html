@@ -1,1 +1,24 @@
-<p>novo-aluno works!</p>
+<!-- novo-aluno.component.html -->
+<form [formGroup]="alunoForm" (ngSubmit)="salvarAluno()">
+  <mat-form-field>
+    <mat-label>Nome</mat-label>
+    <input matInput formControlName="nome" placeholder="Digite o nome" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Matrícula</mat-label>
+    <input matInput formControlName="matricula" placeholder="Digite a matrícula" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput formControlName="nascimento" placeholder="DD/MM/YYYY" required>
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Data de Cadastro</mat-label>
+    <input matInput formControlName="dataCadastro" placeholder="Data de cadastro" [disabled]="true">
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+</form>

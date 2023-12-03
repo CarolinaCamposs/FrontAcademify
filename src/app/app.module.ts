@@ -14,10 +14,11 @@ import { MatTableModule } from '@angular/material/table';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
+import { MatNativeDateModule } from '@angular/material/core';
 
 
 
@@ -41,9 +42,9 @@ import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
     MatInputModule,
     HttpClientModule,
     MatButtonModule,
-    FormsModule,
-    CommonModule
-
+    CommonModule,
+    FormsModule, 
+    ReactiveFormsModule
   ],
   providers: [DatePipe],
   bootstrap: [AppComponent]

@@ -1,5 +1,3 @@
-// novo-aluno.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../aluno.service';
@@ -7,7 +5,8 @@ import { AlunoService } from '../aluno.service';
 @Component({
   selector: 'app-novo-aluno',
   templateUrl: './novo-aluno.component.html',
-  styleUrls: ['./novo-aluno.component.css']
+  styleUrls: ['./novo-aluno.component.css'],
+
 })
 export class NovoAlunoComponent implements OnInit {
   alunoForm!: FormGroup;

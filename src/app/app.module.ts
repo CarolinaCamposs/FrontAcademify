@@ -18,7 +18,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
-import { MatNativeDateModule } from '@angular/material/core';
+import { DateFormatDirective } from './DateFormatDirective ';
 
 
 
@@ -29,7 +29,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     RodapeComponent,
     HomeComponent,
     AlunoListaComponent,
-    NovoAlunoComponent
+    NovoAlunoComponent,
+    DateFormatDirective
   ],
   imports: [
     BrowserModule,

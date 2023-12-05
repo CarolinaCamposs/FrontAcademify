@@ -11,7 +11,7 @@ import { AlunoService } from '../aluno.service';
   styleUrls: ['./aluno-lista.component.css'],
 })
 export class AlunoListaComponent implements AfterViewInit {
-  displayedColumns: string[] = ['id', 'nome', 'matricula', 'nascimento', 'dataHoraCadastro'];
+  displayedColumns: string[] = ['id', 'nome', 'matricula', 'nascimento', 'dataHoraCadastro', 'acao'];
   dataSource: MatTableDataSource<Aluno> = new MatTableDataSource<Aluno>();
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -35,5 +35,13 @@ export class AlunoListaComponent implements AfterViewInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  removerAluno(aluno: Aluno): void {
+    const alunoId = aluno.id as number; 
+    this.alunoService.removerAluno(alunoId).subscribe(() => {
+
+      this.dataSource.data = this.dataSource.data.filter((a) => a.id !== alunoId);
+    });
   }
 }

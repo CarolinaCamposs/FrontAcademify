@@ -19,7 +19,8 @@ import { MatInputModule } from '@angular/material/input';
 import { CommonModule, DatePipe } from '@angular/common';
 import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
 import { MatNativeDateModule } from '@angular/material/core';
-
+import { MatIconModule } from '@angular/material/icon';
+import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.component'; 
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     RodapeComponent,
     HomeComponent,
     AlunoListaComponent,
-    NovoAlunoComponent
+    NovoAlunoComponent,
+    AlertaSucessoComponent
   ],
   imports: [
     BrowserModule,
@@ -42,6 +44,7 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     HttpClientModule,
     MatButtonModule,
+    MatIconModule,
     CommonModule,
     FormsModule, 
     ReactiveFormsModule

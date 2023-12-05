@@ -1,5 +1,3 @@
-// novo-aluno.component.ts
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../aluno.service';
@@ -11,8 +9,12 @@ import { AlunoService } from '../aluno.service';
 })
 export class NovoAlunoComponent implements OnInit {
   alunoForm!: FormGroup;
+  cadastroSucesso = false;
 
-  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private alunoService: AlunoService
+  ) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -33,11 +35,16 @@ export class NovoAlunoComponent implements OnInit {
       this.alunoService.criarAluno(alunoData).subscribe(
         (response: any) => {
           console.log('Aluno salvo com sucesso:', response);
+          this.cadastroSucesso = true;
         },
         (error: any) => {
           console.error('Erro ao salvar aluno:', error);
         }
       );
     }
+  }
+
+  fecharMensagem() {
+    this.cadastroSucesso = false;
   }
 }

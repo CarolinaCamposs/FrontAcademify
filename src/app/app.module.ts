@@ -20,7 +20,8 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatIconModule } from '@angular/material/icon';
-import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.component'; 
+import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.component';
+import { EditaralunoComponent } from './editaraluno/editaraluno.component'; 
 
 
 @NgModule({
@@ -31,7 +32,8 @@ import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.componen
     HomeComponent,
     AlunoListaComponent,
     NovoAlunoComponent,
-    AlertaSucessoComponent
+    AlertaSucessoComponent,
+    EditaralunoComponent
   ],
   imports: [
     BrowserModule,

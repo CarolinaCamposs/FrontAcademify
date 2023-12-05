@@ -9,6 +9,7 @@ const routes: Routes = [
    {path: 'home', component: HomeComponent},
    {path: 'aluno-lista', component: AlunoListaComponent},
    {path: 'novo-aluno', component: NovoAlunoComponent}
+   
 
 ];
 

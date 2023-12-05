@@ -4,6 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Aluno } from '../aluno.model';
 import { AlunoService } from '../aluno.service';
+import { Router } from '@angular/router'; // Importe o Router
 
 @Component({
   selector: 'app-aluno-lista',
@@ -17,7 +18,7 @@ export class AlunoListaComponent implements AfterViewInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private alunoService: AlunoService) { }
+  constructor(private alunoService: AlunoService, private router: Router) { } // Injete o Router no construtor
 
   ngAfterViewInit() {
     this.listarAlunos();
@@ -38,10 +39,14 @@ export class AlunoListaComponent implements AfterViewInit {
   }
 
   removerAluno(aluno: Aluno): void {
-    const alunoId = aluno.id as number; 
+    const alunoId = aluno.id as number;
     this.alunoService.removerAluno(alunoId).subscribe(() => {
-
       this.dataSource.data = this.dataSource.data.filter((a) => a.id !== alunoId);
     });
+  }
+
+  editarAluno(alunoId: number): void {
+   
+    this.router.navigate(['/editaraluno', alunoId]);
   }
 }

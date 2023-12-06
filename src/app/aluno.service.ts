@@ -11,20 +11,24 @@ export class AlunoService {
 
   constructor(private http: HttpClient) { }
 
-  // LISTAR ALUNOS 
   listarAlunos(): Observable<Aluno[]> {
     return this.http.get<Aluno[]>(`${this.apiUrl}/listar`);
   }
-  // CADASTRAR NOVO ALUNO 
+
   criarAluno(alunoData: any): Observable<any> {
-    // Lógica para enviar os dados do aluno para o servidor
     return this.http.post(`${this.apiUrl}/incluir`, alunoData);
   }
-  // editarAluno(aluno: Aluno): Observable<Aluno> {
-  //   return this.http.put<Aluno>(`${this.apiUrl}/api/aluno/editar`, aluno);
-  // }
+
   removerAluno(alunoId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${alunoId}`);
   }
-  
+
+  atualizarAluno(alunoId: number, aluno: Aluno): Observable<Aluno> {
+    return this.http.put<Aluno>(`${this.apiUrl}/editar/${alunoId}`, aluno);
+  }
+  obterAlunoPorId(id: number): Observable<Aluno> {
+    return this.http.get<Aluno>(`${this.apiUrl}/get/${id}`);
+  }
+
+
 }

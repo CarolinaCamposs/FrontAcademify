@@ -6,16 +6,12 @@ import { AlunoService } from '../aluno.service';
   selector: 'app-novo-aluno',
   templateUrl: './novo-aluno.component.html',
   styleUrls: ['./novo-aluno.component.css'],
-
 })
 export class NovoAlunoComponent implements OnInit {
   alunoForm!: FormGroup;
   cadastroSucesso = false;
 
-  constructor(
-    private formBuilder: FormBuilder,
-    private alunoService: AlunoService
-  ) { }
+  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService) {}
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -33,6 +29,11 @@ export class NovoAlunoComponent implements OnInit {
   salvarAluno() {
     if (this.alunoForm.valid) {
       const alunoData = this.alunoForm.value;
+
+      // Formatar a data para o formato 'yyyy-MM-dd'
+      const dataNascimentoFormatada = this.formatarData(alunoData.nascimento);
+      alunoData.nascimento = dataNascimentoFormatada;
+
       this.alunoService.criarAluno(alunoData).subscribe(
         (response: any) => {
           console.log('Aluno salvo com sucesso:', response);
@@ -43,6 +44,12 @@ export class NovoAlunoComponent implements OnInit {
         }
       );
     }
+  }
+
+  // Função para formatar a data para 'yyyy-MM-dd'
+  formatarData(data: string): string {
+    const partes = data.split('/');
+    return `${partes[2]}-${partes[1]}-${partes[0]}`;
   }
 
   fecharMensagem() {

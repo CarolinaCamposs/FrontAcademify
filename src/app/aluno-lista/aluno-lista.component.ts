@@ -4,7 +4,7 @@ import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Aluno } from '../aluno.model';
 import { AlunoService } from '../aluno.service';
-import { Router } from '@angular/router'; // Importe o Router
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aluno-lista',
@@ -27,11 +27,20 @@ export class AlunoListaComponent implements AfterViewInit {
   listarAlunos(): void {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       console.log('Dados recebidos:', alunos);
+  
+      alunos.forEach(aluno => {
+        // Certifique-se de que aluno.nascimento é um objeto Date ou uma string no formato de data adequado.
+        aluno.nascimento = new Date(aluno.nascimento);
+      });
+  
       this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
+  
+  
+
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;

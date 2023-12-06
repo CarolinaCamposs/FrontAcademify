@@ -20,7 +20,7 @@ import { CommonModule, DatePipe } from '@angular/common';
 import { NovoAlunoComponent } from './novo-aluno/novo-aluno.component';
 import { MatIconModule } from '@angular/material/icon';
 import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.component';
-import { EditaralunoComponent } from './editaraluno/editaraluno.component'; 
+import { EditarAlunoComponent} from './editaraluno/editaraluno.component'; 
 import { DateFormatDirective } from './DateFormatDirective ';
 
 
@@ -33,9 +33,9 @@ import { DateFormatDirective } from './DateFormatDirective ';
     RodapeComponent,
     HomeComponent,
     AlunoListaComponent,
+    EditarAlunoComponent,
     NovoAlunoComponent,
     AlertaSucessoComponent,
-    EditaralunoComponent,
     DateFormatDirective
 
   ],

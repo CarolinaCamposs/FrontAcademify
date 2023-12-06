@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { EditarAlunoComponent } from './editaraluno.component';
+import { EditarAlunoComponent } from './editar-aluno.component';
 
 describe('EditarAlunoComponent', () => {
   let component: EditarAlunoComponent;

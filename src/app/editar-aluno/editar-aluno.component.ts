@@ -7,8 +7,8 @@ import { format, parse } from 'date-fns';
 
 @Component({
   selector: 'app-editaraluno',
-  templateUrl: './editaraluno.component.html',
-  styleUrls: ['./editaraluno.component.css'],
+  templateUrl: './editar-aluno.component.html',
+  styleUrls: ['./editar-aluno.component.css'],
 })
 export class EditarAlunoComponent implements OnInit {
   alunoForm!: FormGroup;

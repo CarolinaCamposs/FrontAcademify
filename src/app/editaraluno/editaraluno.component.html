@@ -1,5 +1,5 @@
 <div class="form-container">
-  <form [formGroup]="alunoForm" (ngSubmit)="atualizarAluno()">
+  <form [formGroup]="alunoForm" (ngSubmit)="atualizarAluno()" class="center-form">
     <mat-form-field class="form-field">
       <mat-label>Nome</mat-label>
       <input matInput formControlName="nome" placeholder="Digite o nome" required>
@@ -18,6 +18,8 @@
 
     <!-- Add other form fields as needed -->
 
-    <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+    <div class="center-button">
+      <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+    </div>
   </form>
 </div>

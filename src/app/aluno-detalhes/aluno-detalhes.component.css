@@ -1,0 +1,33 @@
+
+.mat-dialog-content:host {
+  max-width: 80%;
+  max-height: 80%;
+}
+
+h2 {
+  color: #080808;
+}
+
+p {
+  margin-bottom: 12px;
+}
+
+mat-dialog-actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 16px;
+}
+
+button {
+  background-color: #969292;
+  color: #ffffff;
+  padding: 12px 24px;
+  border: none; 
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: #808080;
+  color: #ffffff;
+}

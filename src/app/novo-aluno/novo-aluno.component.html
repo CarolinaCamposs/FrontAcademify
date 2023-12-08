@@ -1,26 +1,39 @@
-<form [formGroup]="alunoForm" (ngSubmit)="salvarAluno()">
-  <mat-form-field>
+<form [formGroup]="alunoForm" (ngSubmit)="salvarAluno()" class="form-container">
+  <h2>Cadastro de aluno</h2>
+
+  <mat-form-field class="form-field">
     <mat-label>Nome</mat-label>
     <input matInput formControlName="nome" placeholder="Digite o nome" required>
+    <mat-error *ngIf="alunoForm.get('nome')?.hasError('minlength')">Nome do aluno é inválido</mat-error>
   </mat-form-field>
 
-  <mat-form-field>
+  <mat-form-field class="form-field">
     <mat-label>Matrícula</mat-label>
-    <input matInput formControlName="matricula" placeholder="Digite a matrícula" required>
+    <input matInput formControlName="matricula" placeholder="Digite a matrícula" pattern="[0-9]*" required>
+    <mat-error *ngIf="alunoForm.get('matricula')?.hasError('pattern')">
+      A matrícula deve conter apenas números.
+    </mat-error>
   </mat-form-field>
 
-<mat-form-field>
-  <mat-label>Data de Nascimento</mat-label>
-  <input matInput formControlName="nascimento" placeholder="DD/MM/YYYY" appDateFormat required>
-</mat-form-field>
+  <mat-form-field class="form-field">
+    <mat-label>Data de Nascimento</mat-label>
+    <input matInput formControlName="nascimento" placeholder="DD/MM/YYYY" appDateFormat required>
+  </mat-form-field>
 
-
-  <mat-form-field>
+  <mat-form-field class="form-field">
     <mat-label>Data de Cadastro</mat-label>
     <input matInput formControlName="dataCadastro" placeholder="Data de cadastro" [disabled]="true">
   </mat-form-field>
 
-  <button mat-raised-button color="primary" type="submit">Salvar Aluno</button>
+  <button mat-raised-button color="primary" type="submit" class="submit-button">Salvar Aluno</button>
+
+  <div *ngIf="erro" class="erro-mensagem">
+    {{ erro }}
+  </div>
+
+
 </form>
 
-<app-alerta-sucesso *ngIf="cadastroSucesso" [mensagem]="'Aluno cadastrado com sucesso!'" (fecharAlertaEvent)="fecharMensagem()"></app-alerta-sucesso>
+
+<app-alerta-sucesso *ngIf="cadastroSucesso" [mensagem]="'Aluno cadastrado com sucesso!'"
+  (fecharAlertaEvent)="fecharMensagem()"></app-alerta-sucesso>

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../aluno.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+
 
 @Component({
   selector: 'app-novo-aluno',
@@ -9,9 +11,11 @@ import { AlunoService } from '../aluno.service';
 })
 export class NovoAlunoComponent implements OnInit {
   alunoForm!: FormGroup;
+  erro: string | null = null;
   cadastroSucesso = false;
 
-  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService) {}
+  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService, private snackBar: MatSnackBar
+) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -19,7 +23,7 @@ export class NovoAlunoComponent implements OnInit {
 
   inicializarFormulario(): void {
     this.alunoForm = this.formBuilder.group({
-      nome: ['', Validators.required],
+      nome: ['', [Validators.required, Validators.minLength(3)]],
       matricula: ['', Validators.required],
       nascimento: ['', Validators.required],
       dataCadastro: [{ value: '', disabled: true }],
@@ -30,6 +34,7 @@ export class NovoAlunoComponent implements OnInit {
     if (this.alunoForm.valid) {
       const alunoData = this.alunoForm.value;
 
+       // Verifica o comprimento do nome
       // Formatar a data para o formato 'yyyy-MM-dd'
       const dataNascimentoFormatada = this.formatarData(alunoData.nascimento);
       alunoData.nascimento = dataNascimentoFormatada;

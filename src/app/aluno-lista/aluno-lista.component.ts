@@ -25,7 +25,7 @@ export class AlunoListaComponent implements AfterViewInit {
     private alunoService: AlunoService,
     private router: Router,
     private dialog: MatDialog
-  ) { } 
+  ) { }
 
   ngAfterViewInit() {
     this.listarAlunos();
@@ -35,10 +35,6 @@ export class AlunoListaComponent implements AfterViewInit {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       console.log('Dados recebidos:', alunos);
 
-
-      alunos.forEach(aluno => {
-        aluno.nascimento = new Date(aluno.nascimento);
-      });
       this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -66,6 +62,6 @@ export class AlunoListaComponent implements AfterViewInit {
 
   editarAluno(alunoId: number): void {
 
-    this.router.navigate(['/editaraluno', alunoId]);
+    this.router.navigate(['/editar-aluno', alunoId]);
   }
 }

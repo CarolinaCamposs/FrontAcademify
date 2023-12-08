@@ -22,6 +22,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { AlertaSucessoComponent } from './alerta-sucesso/alerta-sucesso.component';
 import { EditarAlunoComponent} from './editar-aluno/editar-aluno.component'; 
 import { DateFormatDirective } from './DateFormatDirective ';
+import { AlunoDetalhesComponent } from './aluno-detalhes/aluno-detalhes.component';
 
 
 
@@ -36,7 +37,8 @@ import { DateFormatDirective } from './DateFormatDirective ';
     EditarAlunoComponent,
     NovoAlunoComponent,
     AlertaSucessoComponent,
-    DateFormatDirective
+    DateFormatDirective,
+    AlunoDetalhesComponent
 
   ],
   imports: [

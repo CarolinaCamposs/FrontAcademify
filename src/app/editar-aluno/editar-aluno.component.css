@@ -11,6 +11,21 @@
   align-items: center;
 }
 
+button {
+  background-color: green !important;
+  color: #fff !important;
+}
 .center-button {
   margin-top: 20px;
+}
+
+
+button:hover {
+  background-color:#808080 !important;
+  color: #fff !important;
+}
+
+.form-field {
+  width: 300%;
+  margin-bottom: 10px;
 }

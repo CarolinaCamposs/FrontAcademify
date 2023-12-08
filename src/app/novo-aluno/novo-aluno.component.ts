@@ -1,8 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlunoService } from '../aluno.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
 
 @Component({
   selector: 'app-novo-aluno',
@@ -14,8 +13,12 @@ export class NovoAlunoComponent implements OnInit {
   erro: string | null = null;
   cadastroSucesso = false;
 
-  constructor(private formBuilder: FormBuilder, private alunoService: AlunoService, private snackBar: MatSnackBar
-) { }
+  constructor(
+    private formBuilder: FormBuilder,
+    private alunoService: AlunoService,
+    private snackBar: MatSnackBar,
+    private cdr: ChangeDetectorRef  // Adicione o ChangeDetectorRef como uma dependência
+  ) {}
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -34,8 +37,6 @@ export class NovoAlunoComponent implements OnInit {
     if (this.alunoForm.valid) {
       const alunoData = this.alunoForm.value;
 
-      //  Verifica o comprimento do nome
-      // Formatar a data para o formato 'yyyy-MM-dd'
       const dataNascimentoFormatada = this.formatarData(alunoData.nascimento);
       alunoData.nascimento = dataNascimentoFormatada;
 
@@ -43,6 +44,9 @@ export class NovoAlunoComponent implements OnInit {
         (response: any) => {
           console.log('Aluno salvo com sucesso:', response);
           this.cadastroSucesso = true;
+
+          // Limpar os dados no formulário
+          this.alunoForm.reset();
         },
         (error: any) => {
           console.error('Erro ao salvar aluno:', error);
@@ -51,7 +55,6 @@ export class NovoAlunoComponent implements OnInit {
     }
   }
 
-  // Função para formatar a data para 'yyyy-MM-dd'
   formatarData(data: string): string {
     const partes = data.split('/');
     return `${partes[2]}-${partes[1]}-${partes[0]}`;

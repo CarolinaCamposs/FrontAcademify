@@ -12,11 +12,11 @@
 }
 
 button {
-  background-color: #000 !important;
+  background-color: green !important;
   color: #fff !important;
 }
 
 button:hover {
-  background-color: #272626 !important;
+  background-color:#808080 !important;
   color: #fff !important;
 }

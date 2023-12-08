@@ -6,10 +6,13 @@
 
 h2 {
   color: #080808;
+  text-align: center;
+  margin-top: 10px;
 }
 
 p {
   margin-bottom: 12px;
+  margin-left: 20px;
 }
 
 mat-dialog-actions {
@@ -19,15 +22,17 @@ mat-dialog-actions {
 }
 
 button {
-  background-color: #969292;
-  color: #ffffff;
+  background-color: #ff0000;
   padding: 12px 24px;
   border: none; 
   cursor: pointer;
   border-radius: 4px;
+  margin: auto; /* Centraliza o botão horizontal e verticalmente */
+  display: block; 
+  margin-top: 20px;
+
 }
 
 button:hover {
-  background-color: #808080;
-  color: #ffffff;
+  background-color: #f1d3d3;
 }

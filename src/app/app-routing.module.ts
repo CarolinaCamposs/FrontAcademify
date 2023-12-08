@@ -11,7 +11,7 @@ const routes: Routes = [
    {path: 'home', component: HomeComponent},
    {path: 'aluno-lista', component: AlunoListaComponent},
    {path: 'novo-aluno', component: NovoAlunoComponent},
-   { path: 'editar-aluno/:id', component: EditarAlunoComponent},
+   { path: 'editaraluno/:id', component: EditarAlunoComponent},
    {path: 'aluno-detalhes', component: AlunoDetalhesComponent}
    
 

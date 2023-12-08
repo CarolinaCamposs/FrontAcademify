@@ -34,20 +34,18 @@ export class AlunoListaComponent implements AfterViewInit {
   listarAlunos(): void {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       console.log('Dados recebidos:', alunos);
-
-
-      alunos.forEach(aluno => {
-        aluno.nascimento = new Date(aluno.nascimento);
-      });
+  
       this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
     });
   }
+  
 
   abrirDetalhesAluno(aluno: Aluno): void {
     this.dialog.open(AlunoDetalhesComponent, {
-      width: '300px',
+      width: '500px',
+      height: '218px',
       data: aluno,
     });
   }

@@ -6,7 +6,7 @@ import { Aluno } from '../aluno.model';
 import { format, parse } from 'date-fns';
 
 @Component({
-  selector: 'app-editaraluno',
+  selector: 'app-editar-aluno',
   templateUrl: './editar-aluno.component.html',
   styleUrls: ['./editar-aluno.component.css'],
 })

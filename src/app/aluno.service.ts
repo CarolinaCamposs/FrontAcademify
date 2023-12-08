@@ -22,8 +22,15 @@ export class AlunoService {
   removerAluno(alunoId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/delete/${alunoId}`);
   }
-
+   insert(str:string, index:number, value:string) {
+    return str.substr(0, index) + value + str.substr(index);
+}
   atualizarAluno(alunoId: number, aluno: Aluno): Observable<Aluno> {
+   aluno.nascimento=this.insert(aluno.nascimento.toString(),2,'-')
+   aluno.nascimento=this.insert(aluno.nascimento.toString(),5,'-')
+   var dataSplit= aluno.nascimento.split('-').reverse();
+   aluno.nascimento=dataSplit.join( '-');
+    console.log("ffff",aluno)
     return this.http.put<Aluno>(`${this.apiUrl}/editar/${alunoId}`, aluno);
   }
   obterAlunoPorId(id: number): Observable<Aluno> {

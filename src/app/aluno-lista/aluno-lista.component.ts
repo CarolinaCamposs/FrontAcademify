@@ -25,7 +25,7 @@ export class AlunoListaComponent implements AfterViewInit {
     private alunoService: AlunoService,
     private router: Router,
     private dialog: MatDialog
-  ) { } // Injete o Router no construtor
+  ) { } 
 
   ngAfterViewInit() {
     this.listarAlunos();
@@ -35,11 +35,10 @@ export class AlunoListaComponent implements AfterViewInit {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       console.log('Dados recebidos:', alunos);
 
+
       alunos.forEach(aluno => {
-        // Certifique-se de que aluno.nascimento é um objeto Date ou uma string no formato de data adequado.
         aluno.nascimento = new Date(aluno.nascimento);
       });
-
       this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
@@ -47,8 +46,6 @@ export class AlunoListaComponent implements AfterViewInit {
   }
 
   abrirDetalhesAluno(aluno: Aluno): void {
-    // Aqui você pode usar um serviço ou um modal para exibir os detalhes
-    // Por exemplo, usando um serviço de dialog do Angular Material
     this.dialog.open(AlunoDetalhesComponent, {
       width: '300px',
       data: aluno,

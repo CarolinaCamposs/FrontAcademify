@@ -30,10 +30,7 @@
   <div *ngIf="erro" class="erro-mensagem">
     {{ erro }}
   </div>
-
-
 </form>
-
 
 <app-alerta-sucesso *ngIf="cadastroSucesso" [mensagem]="'Aluno cadastrado com sucesso!'"
   (fecharAlertaEvent)="fecharMensagem()"></app-alerta-sucesso>

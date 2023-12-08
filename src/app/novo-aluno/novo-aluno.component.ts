@@ -34,7 +34,7 @@ export class NovoAlunoComponent implements OnInit {
     if (this.alunoForm.valid) {
       const alunoData = this.alunoForm.value;
 
-       // Verifica o comprimento do nome
+      //  Verifica o comprimento do nome
       // Formatar a data para o formato 'yyyy-MM-dd'
       const dataNascimentoFormatada = this.formatarData(alunoData.nascimento);
       alunoData.nascimento = dataNascimentoFormatada;

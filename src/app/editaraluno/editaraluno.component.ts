@@ -18,7 +18,7 @@ export class EditarAlunoComponent implements OnInit {
     private alunoService: AlunoService,
     private route: ActivatedRoute,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.inicializarFormulario();
@@ -36,6 +36,7 @@ export class EditarAlunoComponent implements OnInit {
   obterDetalhesAluno(): void {
     const alunoId: number = +this.route.snapshot.paramMap.get('id')!;
     this.alunoService.obterAlunoPorId(alunoId).subscribe((aluno: Aluno) => {
+     aluno.nascimento=this.formatarDataVisualizacao(aluno.nascimento.toString())
       // Não formate a data aqui, mantenha-a no formato original
       this.alunoForm.patchValue({ ...aluno });
     });
@@ -53,16 +54,11 @@ export class EditarAlunoComponent implements OnInit {
     });
   }
 
-  formatarDataVisualizacao(data: string | Date | null): string {
-    if (!data) {
-      return ''; // Ou qualquer valor padrão desejado para tratamento de nulo
-    }
-
-    const dataObj = new Date(data);
-    const dia = dataObj.getDate().toString().padStart(2, '0');
-    const mes = (dataObj.getMonth() + 1).toString().padStart(2, '0');
-    const ano = dataObj.getFullYear();
-    return `${dia}/${mes}/${ano}`;
+  formatarDataVisualizacao(data: string): string {
+    if (data == "" || data == null || data == undefined)
+      return "";
+    var dataSplit = data.toString().split('-').reverse();
+    return dataSplit.join('/');
   }
 
   formatarDataEnvio(data: string): string {

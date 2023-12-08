@@ -28,11 +28,6 @@ export class AlunoListaComponent implements AfterViewInit {
     this.alunoService.listarAlunos().subscribe((alunos: Aluno[]) => {
       console.log('Dados recebidos:', alunos);
   
-      alunos.forEach(aluno => {
-        // Certifique-se de que aluno.nascimento é um objeto Date ou uma string no formato de data adequado.
-        aluno.nascimento = new Date(aluno.nascimento);
-      });
-  
       this.dataSource.data = alunos;
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
